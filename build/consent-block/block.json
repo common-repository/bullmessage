@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "bullmessage/bullmessage-consent-block",
+  "version": "0.2.0",
+  "title": "BullMessage",
+  "category": "woocommerce",
+  "description": "BullMessage's marketing consent checkbox.",
+  "supports": {
+    "align": false,
+    "html": false,
+    "multiple": false,
+    "reusable": false,
+    "inserter": false,
+    "lock": false
+  },
+  "attributes": {
+    "lock": {
+      "type": "object",
+      "default": {
+        "remove": true,
+        "move": true
+      }
+    }
+  },
+  "parent": [
+    "woocommerce/checkout-contact-information-block"
+  ],
+  "textdomain": "bullmessage-consent-block",
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./frontend.js"
+}

@@ -1,0 +1,10 @@
+*** BullMessage for WooCommerce Plugin Changelog ***
+
+2024-06-04 - version 0.2.0
+* Add remote deactivation
+
+2024-05-21 - version 0.1.0
+* Add consent checkbox to checkout block
+* Add consent checkbox to classic checkout
+* Add connect bullmessage account
+* Save consent to order metadata

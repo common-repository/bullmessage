@@ -1,0 +1,51 @@
+{
+  "name": "bullmessage",
+  "version": "0.1.0",
+  "author": "BullMessage, Inc",
+  "license": "GPL-3.0+",
+  "main": "build/index.js",
+  "files": [
+    "admin/**",
+    "build/**",
+    "includes/**",
+    "languages/**",
+    "public/**",
+    "vendor/**",
+    "bullmessage.php",
+    "uninstall.php",
+    "block.json",
+    "changelog.*",
+    "license.*",
+    "readme.*",
+    "composer.json"
+  ],
+  "scripts": {
+    "build": "BULLMESSAGE_URL=https://app.bullmessage.com wp-scripts build",
+    "format": "wp-scripts format",
+    "format:php": "./vendor/bin/phpcbf --standard=WordPress includes bullmessage.php uninstall.php",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "packages-update": "wp-scripts packages-update",
+    "preplugin-zip": "npm run build && composer install -o --no-dev",
+    "plugin-zip": "wp-scripts plugin-zip && unzip bullmessage.zip -d bullmessage && rm bullmessage.zip && zip -r bullmessage.zip bullmessage && rm -rf bullmessage",
+    "postplugin-zip": "composer install",
+    "sync-svn": "unzip bullmessage.zip -d bullmessage && cp -r bullmessage/bullmessage/* ${DIR:-bullmessage}",
+    "postsync-svn": "rm -rf bullmessage",
+    "start": "wp-scripts start",
+    "postinstall": "composer install",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@wordpress/api-fetch": "6.42.0",
+    "@wordpress/hooks": "3.56.0",
+    "@wordpress/i18n": "4.56.0"
+  },
+  "devDependencies": {
+    "@woocommerce/dependency-extraction-webpack-plugin": "3.0.0",
+    "@woocommerce/eslint-plugin": "2.2.0",
+    "@wordpress/scripts": "24.6.0",
+    "husky": "9.0.11",
+    "lint-staged": "15.2.2",
+    "prettier": "3.0.3"
+  }
+}
